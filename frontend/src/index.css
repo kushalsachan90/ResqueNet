@@ -1,0 +1,67 @@
+@import "tailwindcss";
+
+@theme {
+  /* Core Surface Colors */
+  --color-void: #0B0E11;
+  --color-void-raised: #12161B;
+  --color-void-line: #1F252C;
+
+  /* Alarm / Alert Colors */
+  --color-alert: #E5342B;
+  --color-alert-dim: #7A1F1B;
+  --color-alert-glow: #FF5A4E;
+
+  /* Signal Status Colors */
+  --color-signal-amber: #F5A623;
+  --color-signal-green: #34D399;
+
+  /* Text Inks */
+  --color-ink: #EDEFF2;
+  --color-ink-muted: #8B93A1;
+  --color-ink-faint: #565D68;
+
+  /* Fonts */
+  --font-display: "Rajdhani", system-ui, sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, monospace;
+
+  /* Box Shadows */
+  --shadow-beacon: 0 0 40px 8px rgba(229, 52, 43, 0.55), 0 0 120px 40px rgba(229, 52, 43, 0.18);
+  --shadow-beacon-calm: 0 0 40px 8px rgba(52, 211, 153, 0.45), 0 0 120px 40px rgba(52, 211, 153, 0.12);
+
+  /* Keyframes */
+  @keyframes ring-pulse {
+    0% { transform: scale(1); opacity: 0.55; }
+    100% { transform: scale(2.15); opacity: 0; }
+  }
+
+  @keyframes core-throb {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.035); }
+  }
+
+  @keyframes blink {
+    0%, 49% { opacity: 1; }
+    50%, 100% { opacity: 0; }
+  }
+
+  /* Animations */
+  --animation-ring-pulse-1: ring-pulse 2.4s cubic-bezier(0.2,0.6,0.4,1) infinite;
+  --animation-ring-pulse-2: ring-pulse 2.4s cubic-bezier(0.2,0.6,0.4,1) infinite 0.8s;
+  --animation-ring-pulse-3: ring-pulse 2.4s cubic-bezier(0.2,0.6,0.4,1) infinite 1.6s;
+  --animation-core-throb: core-throb 1.8s ease-in-out infinite;
+  --animation-blink: blink 1.1s step-start infinite;
+}
+
+@layer base {
+  html, body, #root {
+    height: 100%;
+    overscroll-behavior-y: none;
+  }
+
+  body {
+    background-color: var(--color-void);
+    color: var(--color-ink);
+    -webkit-font-smoothing: antialiased;
+    font-family: var(--font-display);
+  }
+}
